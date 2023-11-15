@@ -17,10 +17,10 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
-} stack_t;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
+}	stack_t;
 
 
 /**
@@ -33,32 +33,32 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
-} instruction_t;
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
+}	instruction_t;
 
 /**
  * struct data_s - file and data content
+ * @arg: input argument
  * @file: file argument
  * @data: data for stack operation
- * @op: argument for opcod
+ * @stack: stack head
  * @line_number: line number of file
- * 
+ * @swch: switch b/n stack queue
  */
 typedef struct data_s
 {
-		char *arg;
-		FILE *file;
-		char *data;
-		stack_t *stack;
-		unsigned int line_number;
-		unsigned int swch;
-        
-}data_t;
+	char *arg;
+	FILE *file;
+	char *data;
+	stack_t *stack;
+	unsigned int line_number;
+	unsigned int swch;
+}	data_t;
 
 extern data_t data;
 #define BUF_SIZE 1024
-void parse();
+void parse(void);
 void _push(stack_t **stack, unsigned int);
 void _head(stack_t **stack);
 void _tail(stack_t **stack);

@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * nop - does nothing;
+ * _nop - does nothing;
  * @stack: stack head
  * @line_number: line number of instructon in monty file
  * Return: Nothing

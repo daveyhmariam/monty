@@ -74,6 +74,5 @@ void parse()
 		opcode = strtok(line, " \n");
 	}
 	fclose(data.file);
-	return;	
 
 }

@@ -15,7 +15,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		fclose(data.file);
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->n < 65 || (*stack)->n >122)
+	if ((*stack)->n < 65 || (*stack)->n > 122)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		fclose(data.file);
@@ -23,5 +23,4 @@ void _pchar(stack_t **stack, unsigned int line_number)
 	}
 
 	fprintf(stdout, "%c\n", (*stack)->n);
-	return;
 }

@@ -9,18 +9,19 @@
 
 void _mul(stack_t **stack, unsigned int line_number)
 {
-    stack_t *tmp;
+	stack_t *tmp;
 
 	tmp = *stack;
 	if (tmp)
+	{
 		if (tmp->next == NULL)
-			{
-				fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
-				fclose(data.file);
-				exit(EXIT_FAILURE);
-			}
-    tmp->next->n *= tmp->n;
-    *stack = tmp->next;
-    free(tmp);
-    return;
+		{
+			fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+			fclose(data.file);
+			exit(EXIT_FAILURE);
+		}
+	}
+	tmp->next->n *= tmp->n;
+	*stack = tmp->next;
+	free(tmp);
 }
