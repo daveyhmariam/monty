@@ -1,33 +1,24 @@
 #include "monty.h"
-
-void parse()
+/**
+ * parse - tokenizes argument in monty and calls opcode
+ * Return: Nothing
+*/
+void parse(void)
 {
 	char *line, getline[255], *opcode;
 	int size;
 	int idx;
 
 
-    instruction_t instruct[] = {
-								{"push", _push},
-								{"pall", _pall},
-								{"pint", _pint},
-								{"pop", _pop},
-								{"swap", _swap},
-								{"add", _add},
-								{"nop", _nop},
-								{"sub", _sub},
-								{"div", _div},
-								{"mul", _mul},
-								{"mod", _mod},
-								{"pchar", _pchar},
-								{"pstr", _pstr},
-								{"rotl", _rotl},
-								{"rotr", _rotr},
-								{"stack", _stack},
-								{"queue", _queue},
-								{NULL, NULL}
+	instruction_t instruct[] = {
+								{"push", _push}, {"pall", _pall}, {"pint", _pint},
+								{"pop", _pop}, {"swap", _swap}, {"add", _add},
+								{"nop", _nop}, {"sub", _sub}, {"div", _div},
+								{"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
+								{"pstr", _pstr}, {"rotl", _rotl}, {"rotr", _rotr},
+								{"stack", _stack}, {"queue", _queue}, {NULL, NULL}
 
-    };
+};
 	idx = 0;
 	size = 1024;
 	data.line_number = 0;
@@ -62,7 +53,7 @@ void parse()
 			}
 			if (instruct[idx].opcode == NULL)
 			{
-				fprintf(stderr, "L%d: unknown instruction %s\n",data.line_number, opcode);
+				fprintf(stderr, "L%d: unknown instruction %s\n", data.line_number, opcode);
 				fclose(data.file);
 				exit(EXIT_FAILURE);
 			}
