@@ -32,20 +32,22 @@ void parse(void)
 		data.line_number++;
 		while (opcode && instruct[idx].opcode)
 		{
-			if (strcmp(opcode, instruct[idx].opcode) == 0)
+			if (strcmp(opcode, instruct[idx].opcode) != 0)
+			{
+				idx++;
+			}
+			else if (strcmp(opcode, instruct[idx].opcode) == 0)
 			{
 				data.data = strtok(NULL, " \n");
 				instruct[idx].f(&data.stack, data.line_number);
 				break;
 			}
-			else if (instruct[idx].opcode == NULL)
+			if (instruct[idx].opcode == NULL)
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n", data.line_number, opcode);
 				fclose(data.file);
 				exit(EXIT_FAILURE);
 			}
-			else
-			idx++;
 		}
 		line = fgets(getline, size, data.file);
 		if (line == NULL)
@@ -53,5 +55,4 @@ void parse(void)
 		opcode = strtok(line, " \n");
 	}
 	fclose(data.file);
-	freelist();
 }
