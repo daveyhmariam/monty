@@ -16,7 +16,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	{
 		while (data.data[idx])
 		{
-			if (data.data[idx] < 48 || data.data[idx] > 57)
+			if (data.data[idx] != 45 && (data.data[idx] < 48 || data.data[idx] > 57))
 			{
 				fprintf(stderr, "L%u: usage: push integer\n", line_number);
 				fclose(data.file);

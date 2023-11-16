@@ -79,4 +79,5 @@ void _rotr(stack_t **stack, unsigned int line_number);
 void _stack(stack_t **stack, unsigned int line_number);
 void _queue(stack_t **stack, unsigned int line_number);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+void freelist();
 #endif
