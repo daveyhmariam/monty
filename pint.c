@@ -10,6 +10,11 @@
 void _pint(stack_t **stack, unsigned int line_number)
 {
 	(void) line_number;
+
+	if (data.data != NULL)
+	{
+		return;
+	}
 	if ((*stack))
 	{
 		fprintf(stdout, "%d\n", ((*stack)->n));
