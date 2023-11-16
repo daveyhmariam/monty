@@ -55,4 +55,5 @@ void parse(void)
 		opcode = strtok(line, " \n");
 	}
 	fclose(data.file);
+	freelist();
 }
