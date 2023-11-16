@@ -9,11 +9,6 @@
 
 void _pint(stack_t **stack, unsigned int line_number)
 {
-	if (data.data != NULL)
-	{
-		fprintf(stderr, "L%u: usage: pint\n", line_number);
-		exit(EXIT_FAILURE);
-	}
 	if ((*stack))
 	{
 		fprintf(stdout, "%d\n", ((*stack)->n));
