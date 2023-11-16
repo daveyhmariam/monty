@@ -15,10 +15,10 @@ void _nop(stack_t **stack, unsigned int line_number)
 
 /**
  * freelist - free allocated memory when file closed
- * 
+ *
  * Return: nothing
 */
-void freelist()
+void freelist(void)
 {
 	stack_t *current = data.stack, *temp = NULL;
 

@@ -21,6 +21,6 @@ int main(int argc, char *argv[])
 		data.arg = argv[i];
 		parse();
 	}
-	
+
 	return (0);
 }
