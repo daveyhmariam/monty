@@ -27,7 +27,6 @@ void parse(void)
 	if (!data.file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", data.arg);
-		fclose(data.file);
 		exit(EXIT_FAILURE);
 	}
 
