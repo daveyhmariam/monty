@@ -55,7 +55,6 @@ void parse(void)
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n", data.line_number, opcode);
 				fclose(data.file);
-				freelist();
 				exit(EXIT_FAILURE);
 			}
 
