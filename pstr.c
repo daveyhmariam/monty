@@ -9,17 +9,19 @@
 
 void _pstr(stack_t **stack, unsigned int line_number)
 {
+	stack_t *current = *stack;
 	(void) line_number;
-	while (*stack)
+
+	if (*stack != NULL)
 	{
-		if ((*stack)->n >= 65 && (*stack)->n <= 122)
+		while (current != NULL)
 		{
-			fprintf(stdout, "%c", (*stack)->n);
-			*stack = (*stack)->next;
-		}
-		else
-		{
+			if ((current)->n > 0 && (current)->n < 255)
+			printf("%c", (char)((current)->n));
+			else
 			break;
+			current = current->next;
 		}
+		printf("\n");
 	}
 }
