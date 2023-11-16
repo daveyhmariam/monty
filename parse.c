@@ -12,7 +12,7 @@ void parse(void)
 	{"push", _push}, {"pall", _pall}, {"pint", _pint}, {"pop", _pop},
 	{"swap", _swap}, {"add", _add}, {"nop", _nop}, {"sub", _sub},
 	{"div", _div}, {"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
-	{"pstr", _pstr}, {"rotl", _rotl}, {"rotr", _rotr}, {"#", _nop},
+	{"pstr", _pstr}, {"rotl", _rotl}, {"rotr", _rotr},
 	{"stack", _stack}, {"queue", _queue}, {NULL, NULL}
 };
 
@@ -32,6 +32,8 @@ void parse(void)
 		data.line_number++;
 		while (opcode && instruct[idx].opcode)
 		{
+			if (opcode[0] == '#')
+				break;
 			if (strcmp(opcode, instruct[idx].opcode) != 0)
 			{
 				idx++;
@@ -55,5 +57,4 @@ void parse(void)
 		opcode = strtok(line, " \n");
 	}
 	fclose(data.file);
-	freelist();
 }
