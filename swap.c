@@ -15,6 +15,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 	if (head == NULL || head->next == NULL)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		fclose(data.file);
 		exit(EXIT_FAILURE);
 	}
 	else
