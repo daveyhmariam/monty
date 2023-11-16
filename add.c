@@ -9,21 +9,15 @@
 
 void _add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *head = *stack;
-	int num1, num2;
-
+	stack_t *tmp = *stack;
 	
-	if (head == NULL || head->next == NULL)
+	if (tmp == NULL || tmp->next == NULL)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		fclose(data.file);
 		exit(EXIT_FAILURE);
 	}
-	else
-	{
-		num1 = head->n;
-		num2 = head->next->n;
-		head->next->n = num1 + num2;
-		_pop(stack, line_number);
-	}
+	tmp->next->n += tmp->n;
+	*stack = tmp->next;
+	free(tmp);
 }
