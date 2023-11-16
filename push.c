@@ -20,6 +20,7 @@ void _push(stack_t **stack, unsigned int line_number)
 			{
 				fprintf(stderr, "L%u: usage: push integer\n", line_number);
 				fclose(data.file);
+				freelist();
 				exit(EXIT_FAILURE);
 			}
 			idx++;
@@ -29,6 +30,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		fclose(data.file);
+		freelist();
 		exit(EXIT_FAILURE);
 	}
 	if (data.swch == 0)
