@@ -60,6 +60,7 @@ extern data_t data;
 #define BUF_SIZE 1024
 void parse(void);
 void _push(stack_t **stack, unsigned int);
+void get_opcode(char *line, char *opcode, instruction_t *instruct);
 void _head(stack_t **stack);
 void _tail(stack_t **stack);
 void _pall(stack_t **stack, unsigned int line_number);

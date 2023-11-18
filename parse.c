@@ -6,7 +6,7 @@
 void parse(void)
 {
 	char *line, getline[255], *opcode;
-	int size;
+	size_t size;
 	int idx;
 
 
@@ -30,7 +30,7 @@ void parse(void)
 		exit(EXIT_FAILURE);
 	}
 
-	line = fgets(getline, size, data.file);
+	getline(&getline, &size, data.file);
 
 	opcode = strtok(line, " \n");
 	while (1)
