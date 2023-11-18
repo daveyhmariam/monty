@@ -9,13 +9,18 @@ data_t data = {NULL, NULL, NULL, NULL, 0, 0};
 */
 int main(int argc, char *argv[])
 {
-	if (argc != 2)
+	int i = 0;
+
+	if (argc < 2)
 	{
-		fprintf(stderr, "USAGE: monty file");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	data.arg = argv[1];
-	parse();
+	for (i = 1; i < argc; i++)
+	{
+		data.arg = argv[i];
+		parse();
+	}
 
 	return (0);
 }
